@@ -1,11 +1,13 @@
 ---
-title: Welcome to Evidence
+title: Paris 2024 Olympic Games
+queries:
+  - paris_2024_sites_de_competition_raw: paris_2024_sites_de_competition_raw.sql
 ---
 
 
 ```test_connection
 
-select 1 from motherduck.nyc_service_request_volume limit 1 
+select 1 from motherduck.paris_2024_sites_de_competition limit 1 
 
 ```
 
@@ -18,6 +20,18 @@ select 1 from motherduck.nyc_service_request_volume limit 1
 1. [Connect Evidence to MotherDuck](/settings)
 
 {:else}
+
+## Paris 2024 competition locations
+
+<DataTable data={paris_2024_sites_de_competition_raw}/>
+
+<PointMap 
+    data={paris_2024_sites_de_competition_raw} 
+    lat=latitude
+    long=longitude 
+    pointName=sport
+    height=500
+/>
 
 ## NYC Service Requests
 
