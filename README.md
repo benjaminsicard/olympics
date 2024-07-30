@@ -21,3 +21,9 @@ Deploy mage to AWS ECS with Terraform:
 ## Motherduck
 
 ## Evidence.dev
+
+# Commands executed
+
+- `python -m venv paris2024`
+- `source paris2024/bin/activate`
+- `pip install kaggle`
