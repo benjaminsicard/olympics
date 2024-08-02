@@ -26,4 +26,6 @@ Deploy mage to AWS ECS with Terraform:
 
 - `python -m venv paris2024`
 - `source paris2024/bin/activate`
-- `pip install kaggle`
+- `pip install -r requirements.txt`
+- `cd scripts && python kaggle_dataset_downloader.py`
+- `cd ../evidence/sources/duckdb && duckdb paris2024.duckdb < ../../../scripts/paris2024_duckdb_init.sql`

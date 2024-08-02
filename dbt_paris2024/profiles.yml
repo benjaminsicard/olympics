@@ -1,0 +1,6 @@
+dbt_paris2024:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: '../evidence/sources/duckdb/paris2024.duckdb'

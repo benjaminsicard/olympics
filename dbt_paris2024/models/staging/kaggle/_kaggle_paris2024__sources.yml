@@ -1,0 +1,14 @@
+version: 2
+
+sources:
+
+  - name: kaggle_paris2024
+    description: ""
+    database: main
+    schema: kaggle_paris2024
+    loader: none # informational only (free text)
+
+    tables:
+      - name: athletes
+        description: ""
+          
