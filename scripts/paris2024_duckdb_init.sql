@@ -1,22 +1,13 @@
 set timezone = 'UTC';
 -- drop table first
-drop table if exists athletes;
-drop table if exists events;
-drop table if exists medallists;
-drop table if exists medals_total;
-drop table if exists medals;
-drop table if exists schedules_preliminary;
-drop table if exists schedules;
-drop table if exists teams;
-drop table if exists torch_route;
-drop table if exists venues;
-drop schema if exists kaggle_paris2024;
+drop schema if exists kaggle_paris2024 cascade;
 
+-- create schema
 create schema kaggle_paris2024;
 
 -- create table
-CREATE TABLE athletes (
-    code INT PRIMARY KEY,
+CREATE TABLE kaggle_paris2024.athletes (
+    code VARCHAR PRIMARY KEY,
     name TEXT,
     name_short TEXT,
     name_tv TEXT,
@@ -53,7 +44,7 @@ CREATE TABLE athletes (
     other_sports TEXT
 );
 
-CREATE TABLE events (
+CREATE TABLE kaggle_paris2024.events (
     event TEXT,
     tag TEXT,
     sport TEXT,
@@ -61,7 +52,7 @@ CREATE TABLE events (
     sport_url TEXT
 );
 
-CREATE TABLE medallists (
+CREATE TABLE kaggle_paris2024.medallists (
     medal_date DATE,
     medal_type TEXT,
     medal_code INT,
@@ -77,12 +68,12 @@ CREATE TABLE medallists (
     event_type TEXT,
     url_event TEXT,
     birth_date DATE,
-    code INT
+    code TEXT
 );
 
-CREATE TABLE medals (
+CREATE TABLE kaggle_paris2024.medals (
     medal_type TEXT,
-    medal_code INTEGER,
+    medal_code INT,
     medal_date DATE,
     name TEXT,
     country_code TEXT,
@@ -94,15 +85,15 @@ CREATE TABLE medals (
     code TEXT
 );
 
-CREATE TABLE medals_total (
+CREATE TABLE kaggle_paris2024.medals_total (
     country_code TEXT,
-    gold_medal DECIMAL,
-    silver_medal DECIMAL,
-    bronze_medal DECIMAL,
-    total DECIMAL
+    gold_medal INT,
+    silver_medal INT,
+    bronze_medal INT,
+    total INT
 );
 
-CREATE TABLE schedules_preliminary (
+CREATE TABLE kaggle_paris2024.schedules_preliminary (
     date_start_utc TIMESTAMP WITH TIME ZONE,
     date_end_utc TIMESTAMP WITH TIME ZONE,
     estimated BOOLEAN,
@@ -123,7 +114,7 @@ CREATE TABLE schedules_preliminary (
     sport_url TEXT
 );
 
-CREATE TABLE schedules (
+CREATE TABLE kaggle_paris2024.schedules (
     start_date TIMESTAMP WITH TIME ZONE,
     end_date TIMESTAMP WITH TIME ZONE,
     day DATE,
@@ -142,7 +133,7 @@ CREATE TABLE schedules (
     url TEXT
 );
 
-CREATE TABLE teams (
+CREATE TABLE kaggle_paris2024.teams (
     code TEXT,
     team TEXT,
     team_gender TEXT,
@@ -160,7 +151,7 @@ CREATE TABLE teams (
     num_coaches DECIMAL
 );
 
-CREATE TABLE torch_route (
+CREATE TABLE kaggle_paris2024.torch_route (
     title TEXT,
     city TEXT,
     date_start TIMESTAMP WITH TIME ZONE,
@@ -170,7 +161,7 @@ CREATE TABLE torch_route (
     stage_number DECIMAL
 );
 
-CREATE TABLE venues (
+CREATE TABLE kaggle_paris2024.venues (
     venue TEXT,
     sports TEXT[],
     date_start TIMESTAMP WITH TIME ZONE,
@@ -181,13 +172,13 @@ CREATE TABLE venues (
 
 -- executed from evidence/sources/duckdb
 -- copy csv file into table
-copy athletes from '../../../sources/kaggle/athletes.csv';
-copy events from '../../../sources/kaggle/events.csv';
-copy medallists from '../../../sources/kaggle/medallists.csv';
-copy medals_total from '../../../sources/kaggle/medals_total.csv';
-copy medals from '../../../sources/kaggle/medals.csv';
-copy schedules_preliminary from '../../../sources/kaggle/schedules_preliminary.csv';
-copy schedules from '../../../sources/kaggle/schedules.csv';
-copy teams from '../../../sources/kaggle/teams.csv';
-copy torch_route from '../../../sources/kaggle/torch_route.csv';
-copy venues from '../../../sources/kaggle/venues.csv';
+copy kaggle_paris2024.athletes from 'sources/kaggle/athletes.csv';
+copy kaggle_paris2024.events from 'sources/kaggle/events.csv';
+copy kaggle_paris2024.medallists from 'sources/kaggle/medallists.csv';
+copy kaggle_paris2024.medals_total from 'sources/kaggle/medals_total.csv';
+copy kaggle_paris2024.medals from 'sources/kaggle/medals.csv';
+copy kaggle_paris2024.schedules_preliminary from 'sources/kaggle/schedules_preliminary.csv';
+copy kaggle_paris2024.schedules from 'sources/kaggle/schedules.csv';
+copy kaggle_paris2024.teams from 'sources/kaggle/teams.csv';
+copy kaggle_paris2024.torch_route from 'sources/kaggle/torch_route.csv';
+copy kaggle_paris2024.venues from 'sources/kaggle/venues.csv';

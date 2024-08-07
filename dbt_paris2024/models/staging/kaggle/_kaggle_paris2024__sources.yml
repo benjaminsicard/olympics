@@ -4,11 +4,28 @@ sources:
 
   - name: kaggle_paris2024
     description: ""
-    database: main
+    database: paris2024
     schema: kaggle_paris2024
     loader: none # informational only (free text)
 
     tables:
       - name: athletes
         description: ""
-          
+      - name: events
+        description: ""
+      - name: medallists
+        description: ""
+      - name: medals
+        description: ""
+      - name: medals_total
+        description: ""
+      - name: schedules_preliminary
+        description: ""
+      - name: schedules
+        description: ""
+      - name: teams
+        description: ""
+      - name: torch_route
+        description: ""
+      - name: venues
+        description: ""

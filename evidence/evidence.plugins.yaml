@@ -3,3 +3,4 @@ components:
   "@evidence-dev/core-components": {}
 datasources:
   "@evidence-dev/motherduck": { }
+  "@evidence-dev/duckdb": { }

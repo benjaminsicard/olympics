@@ -1,0 +1,5 @@
+# This file was automatically generated
+name: duckdb_paris2024
+type: duckdb
+options:
+  filename: paris2024.duckdb

@@ -50,8 +50,8 @@ renamed as (
 selection as (
 
     select
-        code as athlete_code,
-        name as athlete_name,
+        athlete_code,
+        athlete_name,
         gender,
         country_code,
         country,
