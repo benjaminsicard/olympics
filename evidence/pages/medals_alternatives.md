@@ -5,8 +5,10 @@ queries:
   - medals_paris2024: medals_paris2024.sql
   - medals_per_country_top10: medals_per_country_top10.sql
   - daily_medals_per_country_top10: daily_medals_per_country_top10.sql
-  - medals_per_country_top10_sankey: medals_per_country_top10_sankey.sql
-  - medals_total_paris2024: medals_total_paris2024.sql
+  - medals_per_country_top10_pivoted_order_by_gold: medals_per_country_top10_pivoted_order_by_gold.sql
+  - medals_per_country_top10_pivoted_order_by_total: medals_per_country_top10_pivoted_order_by_total.sql
+  - medals_total_paris2024_ordered_by_gold: medals_total_paris2024_ordered_by_gold.sql
+  - medals_total_paris2024_ordered_by_total: medals_total_paris2024_ordered_by_total.sql
 ---
 
 ## Daily cumulative medals count - top 10 countries
@@ -46,7 +48,7 @@ queries:
 ## Country to medal type flow
 
 <SankeyDiagram 
-    data={medals_per_country_top10_sankey} 
+    data={medals_per_country_top10_pivoted_order_by_gold} 
     sourceCol= country
     targetCol = medal_type
     valueCol= medal_count
@@ -78,7 +80,7 @@ queries:
 ### Stacked per country - top 10
 
 <BarChart 
-    data={medals_per_country_top10_sankey}
+    data={medals_per_country_top10_pivoted_order_by_gold}
     x=country
     y=medal_count
     series=medal_type
@@ -99,7 +101,7 @@ queries:
 ### Stacked 100% per country - top 10
 
 <BarChart 
-    data={medals_per_country_top10_sankey}
+    data={medals_per_country_top10_pivoted_order_by_gold}
     x=country
     y=medal_count
     series=medal_type
@@ -121,7 +123,7 @@ queries:
 ### Stacked per medal type - top 10 countries
 
 <BarChart 
-    data={medals_per_country_top10_sankey}
+    data={medals_per_country_top10_pivoted_order_by_gold}
     x=medal_type
     y=medal_count
     series=country
@@ -149,7 +151,7 @@ queries:
 ### Stacked 100% per medal type - top 10 countries
 
 <BarChart 
-    data={medals_per_country_top10_sankey}
+    data={medals_per_country_top10_pivoted_order_by_gold}
     x=medal_type
     y=medal_count
     series=country

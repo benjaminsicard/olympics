@@ -26,7 +26,7 @@ top_selection as (
         total_medal_count
     
     from duckdb_paris2024.medals_total_paris2024
-    order by total_medal_count desc
+    order by gold_medal_count desc, silver_medal_count desc, bronze_medal_count desc
     limit 10
 
 ),
