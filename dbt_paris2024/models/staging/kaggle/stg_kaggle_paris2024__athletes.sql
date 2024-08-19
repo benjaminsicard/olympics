@@ -52,13 +52,15 @@ selection as (
     select
         athlete_code,
         athlete_name,
+        athlete_name_tv,
         gender,
         country_code,
         country,
         country_full, 
         disciplines,
         events,
-        birth_date
+        birth_date,
+        birth_place
 
     from renamed
 

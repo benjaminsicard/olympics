@@ -1,18 +1,16 @@
 ---
 title: Medals map
 queries:
-  - athletes_paris2024: athletes_paris2024.sql
-  - medals_paris2024: medals_paris2024.sql
-  - medals_per_country_top10: medals_per_country_top10.sql
-  - daily_medals_per_country_top10: daily_medals_per_country_top10.sql
-  - medals_per_country_top10_pivoted_order_by_gold: medals_per_country_top10_pivoted_order_by_gold.sql
-  - medals_per_country_top10_pivoted_order_by_total: medals_per_country_top10_pivoted_order_by_total.sql
-  - medals_total_paris2024_ordered_by_gold: medals_total_paris2024_ordered_by_gold.sql
-  - medals_total_paris2024_ordered_by_total: medals_total_paris2024_ordered_by_total.sql
+  - medals_total_paris2024: medals_total_paris2024.sql
 ---
 
+<Dropdown name=medals_order_by>
+    <DropdownOption valueLabel="Order by Gold medals" value="gold_medal_count" />
+    <DropdownOption valueLabel="Order by Total medals" value="total_medal_count" />
+</Dropdown>
+
 <BubbleMap 
-    data={medals_total_paris2024_ordered_by_gold} 
+    data={medals_total_paris2024} 
     lat=latitude 
     long=longitude
     size=total_medal_count 

@@ -1,14 +1,6 @@
 ---
 title: Paris 2024 Olympic Games
 queries:
-  - athletes_paris2024: athletes_paris2024.sql
-  - medals_paris2024: medals_paris2024.sql
-  - medals_per_country_top10: medals_per_country_top10.sql
-  - daily_medals_per_country_top10: daily_medals_per_country_top10.sql
-  - medals_per_country_top10_pivoted_order_by_gold: medals_per_country_top10_pivoted_order_by_gold.sql
-  - medals_per_country_top10_pivoted_order_by_total: medals_per_country_top10_pivoted_order_by_total.sql
-  - medals_total_paris2024_ordered_by_gold: medals_total_paris2024_ordered_by_gold.sql
-  - medals_total_paris2024_ordered_by_total: medals_total_paris2024_ordered_by_total.sql
   - medals_total_paris2024: medals_total_paris2024.sql
 ---
 
@@ -27,3 +19,7 @@ queries:
   <Column id=bronze_medal_count align=center title="Bronze Medals" contentType=colorscale scaleColor=#CD7F32 />
 	<Column id=total_medal_count align=center title="Total" />
 </DataTable>
+
+<Footnote id=1>
+The data for this report was sourced from the World Bank World Development Indicators dataset.
+</Footnote>

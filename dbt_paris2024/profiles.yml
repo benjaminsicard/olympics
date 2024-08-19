@@ -1,6 +1,9 @@
 dbt_paris2024:
-  target: dev
+  target: prod
   outputs:
-    dev:
+    prod:
       type: duckdb
       path: '../evidence/sources/duckdb/paris2024.duckdb'
+    qa:
+      type: duckdb
+      path: '../scripts/paris2024.duckdb'
