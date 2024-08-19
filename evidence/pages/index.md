@@ -19,7 +19,3 @@ queries:
   <Column id=bronze_medal_count align=center title="Bronze Medals" contentType=colorscale scaleColor=#CD7F32 />
 	<Column id=total_medal_count align=center title="Total" />
 </DataTable>
-
-<Footnote id=1>
-The data for this report was sourced from the World Bank World Development Indicators dataset.
-</Footnote>
