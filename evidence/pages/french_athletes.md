@@ -7,7 +7,9 @@ queries:
 
 # Birth department of Paris 2024 French athletes
 
-<AreaMap 
+<Grid cols=2 gapSize=sm>
+
+  <AreaMap 
     data={french_departments_paris2024_not_null} 
     areaCol=department_code
     geoJsonUrl='https://raw.githubusercontent.com/gregoiredavid/france-geojson/5d34ee6d0140c29f785fdb047d9329f1aab58833/departements-version-simplifiee.geojson'
@@ -31,7 +33,143 @@ queries:
       {id: 'department_name', fmt: 'id', showColumnName: false},
       {id: 'total_medal_count', title: 'Medals', fmt: 'id', showColumnName: true}
     ]}
-/>
+  />
+
+  <Grid cols=2 gapSize=sm>
+
+      <AreaMap 
+        data={french_departments_paris2024_not_null} 
+        areaCol=department_code
+        geoJsonUrl='/geojson/guadeloupe.geojson'
+        geoId=code
+        value=total_medal_count
+        name=french_departments_area_map
+        height=100
+        colorPalette={['pink', 'violet','blue','darkblue']}
+        min=0
+        max=10
+        borderWidth=0.75
+        borderColor=darkblue
+        opacity=1
+        selectedColor=red
+        selectedBorderWidth=1
+        selectedBorderColor=black
+        selectedOpacity=1
+        showTooltip=true
+        tooltipType=hover
+        tooltip={[
+          {id: 'department_name', fmt: 'id', showColumnName: false},
+          {id: 'total_medal_count', title: 'Medals', fmt: 'id', showColumnName: true}
+        ]}
+      />
+
+      <AreaMap 
+        data={french_departments_paris2024_not_null} 
+        areaCol=department_code
+        geoJsonUrl='/geojson/martinique.geojson'
+        geoId=code
+        value=total_medal_count
+        name=french_departments_area_map
+        height=100
+        colorPalette={['pink', 'violet','blue','darkblue']}
+        min=0
+        max=10
+        borderWidth=0.75
+        borderColor=darkblue
+        opacity=1
+        selectedColor=red
+        selectedBorderWidth=1
+        selectedBorderColor=black
+        selectedOpacity=1
+        showTooltip=true
+        tooltipType=hover
+        tooltip={[
+          {id: 'department_name', fmt: 'id', showColumnName: false},
+          {id: 'total_medal_count', title: 'Medals', fmt: 'id', showColumnName: true}
+        ]}
+      />
+
+      <AreaMap 
+        data={french_departments_paris2024_not_null} 
+        areaCol=department_code
+        geoJsonUrl='/geojson/guyane.geojson'
+        geoId=code
+        value=total_medal_count
+        name=french_departments_area_map
+        height=100
+        colorPalette={['pink', 'violet','blue','darkblue']}
+        min=0
+        max=10
+        borderWidth=0.75
+        borderColor=darkblue
+        opacity=1
+        selectedColor=red
+        selectedBorderWidth=1
+        selectedBorderColor=black
+        selectedOpacity=1
+        showTooltip=true
+        tooltipType=hover
+        tooltip={[
+          {id: 'department_name', fmt: 'id', showColumnName: false},
+          {id: 'total_medal_count', title: 'Medals', fmt: 'id', showColumnName: true}
+        ]}
+      />
+
+      <AreaMap 
+        data={french_departments_paris2024_not_null} 
+        areaCol=department_code
+        geoJsonUrl='/geojson/lareunion.geojson'
+        geoId=code
+        value=total_medal_count
+        name=french_departments_area_map
+        height=100
+        colorPalette={['pink', 'violet','blue','darkblue']}
+        min=0
+        max=10
+        borderWidth=0.75
+        borderColor=darkblue
+        opacity=1
+        selectedColor=red
+        selectedBorderWidth=1
+        selectedBorderColor=black
+        selectedOpacity=1
+        showTooltip=true
+        tooltipType=hover
+        tooltip={[
+          {id: 'department_name', fmt: 'id', showColumnName: false},
+          {id: 'total_medal_count', title: 'Medals', fmt: 'id', showColumnName: true}
+        ]}
+      />
+
+      <AreaMap 
+        data={french_departments_paris2024_not_null} 
+        areaCol=department_code
+        geoJsonUrl='/geojson/mayotte.geojson'
+        geoId=code
+        value=total_medal_count
+        name=french_departments_area_map
+        height=100
+        colorPalette={['pink', 'violet','blue','darkblue']}
+        min=0
+        max=10
+        borderWidth=0.75
+        borderColor=darkblue
+        opacity=1
+        selectedColor=red
+        selectedBorderWidth=1
+        selectedBorderColor=black
+        selectedOpacity=1
+        showTooltip=true
+        tooltipType=hover
+        tooltip={[
+          {id: 'department_name', fmt: 'id', showColumnName: false},
+          {id: 'total_medal_count', title: 'Medals', fmt: 'id', showColumnName: true}
+        ]}
+      />
+  
+  </Grid>
+    
+</Grid>
 
 <DataTable data={athletes_paris2024_filtered_by_french_departments_area_map} search=true totalRow=true>
 

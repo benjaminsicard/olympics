@@ -59,7 +59,7 @@ department_cleaned as (
     select
         athlete_name,
         gender,
-        country_code,
+        coalesce(country_code, 'FRA') as country_code,
         country,
         country_full, 
         disciplines,
@@ -80,7 +80,7 @@ department_cleaned as (
         url_event
     
     from joining j
-    left join seed_departments_france d on j.department_code = d.department_code
+    full join seed_departments_france d on j.department_code = d.department_code -- we want minimum one row per department
 
 ),
 
