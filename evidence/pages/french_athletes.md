@@ -7,6 +7,27 @@ queries:
 
 # Birth department of Paris 2024 French athletes
 
+```sql athletes_and_medals_mapped_correctly_percent
+select 
+  count(*) filter (where department_code is not null) / count(*) AS athletes_mapped_correctly_percent,
+  sum(total_medal_count) filter (where department_code is not null) / sum(total_medal_count) AS medals_mapped_correctly_percent
+from duckdb_paris2024.athletes_paris2024
+where country_code = 'FRA'
+```
+
+<BigValue 
+  data={athletes_and_medals_mapped_correctly_percent} 
+  value=athletes_mapped_correctly_percent
+  fmt=pct
+  title="French athletes mapped"
+/>
+<BigValue 
+  data={athletes_and_medals_mapped_correctly_percent} 
+  value=medals_mapped_correctly_percent
+  fmt=pct
+  title="French medals mapped"
+/>
+
 <Grid cols=2 gapSize=sm>
 
   <AreaMap 
