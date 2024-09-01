@@ -20,7 +20,8 @@ renamed as (
         event,
         event_type,
         'https://olympics.com' || url_event as url_event,
-        code as athlete_code,
+        code_athlete as athlete_code,
+        code_team as team_code,
         'paralympics' as dataset_type,
         'paris2024' as dataset_year
 

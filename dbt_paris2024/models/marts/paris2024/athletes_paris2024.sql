@@ -112,7 +112,7 @@ metrics as (
         department_code,
         region_name,
         dataset_type,
-        dataset_year
+        dataset_year,
         sum(case when medal_code = 1 then 1 else 0 end) as gold_medal_count,
         sum(case when medal_code = 2 then 1 else 0 end) as silver_medal_count,
         sum(case when medal_code = 3 then 1 else 0 end) as bronze_medal_count,

@@ -8,7 +8,7 @@ stg_medals_p_paris2024 as (
 
     select * from {{ ref('stg_kaggle_p_paris2024__medals') }}
 
-)
+),
 
 stg_union as (
 

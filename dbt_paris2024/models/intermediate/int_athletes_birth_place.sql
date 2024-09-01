@@ -1,4 +1,4 @@
-with stg_athletes as (
+with int_athletes as (
 
     select * from {{ ref('int_athletes') }}
 
@@ -6,13 +6,13 @@ with stg_athletes as (
 
 exclude_france as (
 
-    select * from stg_athletes where country_code != 'FRA'
+    select * from int_athletes where country_code != 'FRA'
 
 ),
 
 france_only as (
 
-    select * from stg_athletes where country_code = 'FRA'
+    select * from int_athletes where country_code = 'FRA'
 
 ),
 
@@ -29,6 +29,8 @@ clean_france_birth_place as (
         disciplines,
         events,
         birth_date,
+        dataset_type,
+        dataset_year,
         LOWER(
         TRIM(
             -- Step 4: Remove characters inside () at the end of the city name
@@ -59,9 +61,30 @@ clean_france_birth_place as (
 
 ),
 
+exclude_france_selection as (
+
+    select
+        athlete_code,
+        athlete_name,
+        athlete_name_tv,
+        gender,
+        country_code,
+        country,
+        country_full, 
+        disciplines,
+        events,
+        birth_date,
+        birth_place,
+        dataset_type,
+        dataset_year
+    
+    from exclude_france
+
+),
+
 union_athletes as (
 
-    select * from exclude_france
+    select * from exclude_france_selection
     union all
     select * from clean_france_birth_place
 

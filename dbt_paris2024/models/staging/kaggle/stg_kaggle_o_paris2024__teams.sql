@@ -11,7 +11,7 @@ renamed as (
      team,
      team_gender,
      country,
-     country_full,
+     country_long,
      country_code,
      discipline,
      disciplines_code as discipline_code,

@@ -10,7 +10,7 @@ aggr as (
         department_code,
         department_name,
         dataset_type,
-        dataset_year
+        dataset_year,
         coalesce(sum(total_medal_count), 0) as total_medal_count
     
     from french_athletes

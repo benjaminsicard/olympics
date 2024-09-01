@@ -25,7 +25,7 @@ joining as (
        m.athlete_name,
        m.country_code,
        coalesce(a.country, t.country) as country,
-       coalesce(a.country_full, t.country_full) as country_full,
+       coalesce(a.country_full, t.country_long) as country_full,
        m.gender,
        m.discipline,
        m.event,

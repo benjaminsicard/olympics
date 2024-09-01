@@ -12,6 +12,7 @@ create schema kaggle_p_paris2024;
 -- create table
 CREATE TABLE kaggle_o_paris2024.athletes (
     code VARCHAR PRIMARY KEY,
+    current BOOLEAN,
     name TEXT,
     name_short TEXT,
     name_tv TEXT,
@@ -62,9 +63,12 @@ CREATE TABLE kaggle_o_paris2024.medallists (
     medal_code INT,
     name TEXT,
     gender TEXT,
-    country TEXT,
     country_code TEXT,
+    country TEXT,
+    country_long TEXT,
+    nationality_code TEXT,
     nationality TEXT,
+    nationality_long TEXT,
     team TEXT,
     team_gender TEXT,
     discipline TEXT,
@@ -72,7 +76,9 @@ CREATE TABLE kaggle_o_paris2024.medallists (
     event_type TEXT,
     url_event TEXT,
     birth_date DATE,
-    code TEXT
+    code_athlete TEXT,
+    code_team TEXT,
+    is_medallist BOOLEAN
 );
 
 CREATE TABLE kaggle_o_paris2024.medals (
@@ -80,17 +86,21 @@ CREATE TABLE kaggle_o_paris2024.medals (
     medal_code INT,
     medal_date DATE,
     name TEXT,
-    country_code TEXT,
     gender TEXT,
     discipline TEXT,
     event TEXT,
     event_type TEXT,
     url_event TEXT,
-    code TEXT
+    code TEXT,
+    country_code TEXT,
+    country TEXT,
+    country_long TEXT
 );
 
 CREATE TABLE kaggle_o_paris2024.medals_total (
     country_code TEXT,
+    country TEXT,
+    country_long TEXT,
     gold_medal INT,
     silver_medal INT,
     bronze_medal INT,
@@ -139,11 +149,12 @@ CREATE TABLE kaggle_o_paris2024.schedules (
 
 CREATE TABLE kaggle_o_paris2024.teams (
     code TEXT,
+    current BOOLEAN,
     team TEXT,
     team_gender TEXT,
-    country TEXT,
-    country_full TEXT,
     country_code TEXT,
+    country TEXT,
+    country_long TEXT,
     discipline TEXT,
     disciplines_code TEXT,
     events TEXT,
@@ -199,9 +210,9 @@ CREATE TABLE kaggle_p_paris2024.athletes (
     function TEXT,
     country_code TEXT,
     country TEXT,
-    country_full TEXT,
+    country_long TEXT,
     nationality TEXT,
-    nationality_full TEXT,
+    nationality_long TEXT,
     nationality_code TEXT,
     height DECIMAL,
     weight DECIMAL,
@@ -242,9 +253,12 @@ CREATE TABLE kaggle_p_paris2024.medallists (
     medal_code INT,
     name TEXT,
     gender TEXT,
-    country TEXT,
     country_code TEXT,
+    country TEXT,
+    country_long TEXT,
+    nationality_code TEXT,
     nationality TEXT,
+    nationality_long TEXT,
     team TEXT,
     team_gender TEXT,
     discipline TEXT,
@@ -252,7 +266,8 @@ CREATE TABLE kaggle_p_paris2024.medallists (
     event_type TEXT,
     url_event TEXT,
     birth_date DATE,
-    code TEXT
+    code_athlete TEXT,
+    code_team TEXT
 );
 
 CREATE TABLE kaggle_p_paris2024.medals (
@@ -266,11 +281,15 @@ CREATE TABLE kaggle_p_paris2024.medals (
     event TEXT,
     event_type TEXT,
     url_event TEXT,
-    code TEXT
+    code TEXT,
+    country TEXT,
+    country_long TEXT
 );
 
 CREATE TABLE kaggle_p_paris2024.medals_total (
     country_code TEXT,
+    country TEXT,
+    country_long TEXT,
     gold_medal INT,
     silver_medal INT,
     bronze_medal INT,
@@ -286,8 +305,6 @@ CREATE TABLE kaggle_p_paris2024.schedules_preliminary (
     medal TEXT,
     venue_code TEXT,
     description TEXT,
-    venue_code_other TEXT,
-    discription_other TEXT,
     team_1_code TEXT,
     team_1 TEXT,
     team_2_code TEXT,
@@ -318,12 +335,12 @@ CREATE TABLE kaggle_p_paris2024.schedules (
 );
 
 CREATE TABLE kaggle_p_paris2024.teams (
-    code TEXT,
+    code TEXT,  
     team TEXT,
     team_gender TEXT,
-    country TEXT,
-    country_full TEXT,
     country_code TEXT,
+    country TEXT,
+    country_long TEXT,
     discipline TEXT,
     disciplines_code TEXT,
     events TEXT,
@@ -356,13 +373,13 @@ CREATE TABLE kaggle_p_paris2024.venues (
 
 -- executed from evidence/sources/duckdb
 -- copy csv file into table
-copy kaggle_p_paris2024.athletes from 'sources/kaggle/o_paris2024/athletes.csv';
-copy kaggle_p_paris2024.events_preliminary from 'sources/kaggle/o_paris2024/events_preliminary.csv';
-copy kaggle_p_paris2024.medallists from 'sources/kaggle/o_paris2024/medallists.csv';
-copy kaggle_p_paris2024.medals_total from 'sources/kaggle/o_paris2024/medals_total.csv';
-copy kaggle_p_paris2024.medals from 'sources/kaggle/o_paris2024/medals.csv';
-copy kaggle_p_paris2024.schedules_preliminary from 'sources/kaggle/o_paris2024/schedules_preliminary.csv';
-copy kaggle_p_paris2024.schedules from 'sources/kaggle/o_paris2024/schedules.csv';
-copy kaggle_p_paris2024.teams from 'sources/kaggle/o_paris2024/teams.csv';
-copy kaggle_p_paris2024.torch_route from 'sources/kaggle/o_paris2024/torch_route.csv';
-copy kaggle_p_paris2024.venues from 'sources/kaggle/o_paris2024/venues.csv';
+copy kaggle_p_paris2024.athletes from 'sources/kaggle/p_paris2024/athletes.csv';
+copy kaggle_p_paris2024.events_preliminary from 'sources/kaggle/p_paris2024/events_preliminary.csv';
+copy kaggle_p_paris2024.medallists from 'sources/kaggle/p_paris2024/medallists.csv';
+copy kaggle_p_paris2024.medals_total from 'sources/kaggle/p_paris2024/medals_total.csv';
+copy kaggle_p_paris2024.medals from 'sources/kaggle/p_paris2024/medals.csv';
+copy kaggle_p_paris2024.schedules_preliminary from 'sources/kaggle/p_paris2024/schedules_preliminary.csv';
+copy kaggle_p_paris2024.schedules from 'sources/kaggle/p_paris2024/schedules.csv';
+copy kaggle_p_paris2024.teams from 'sources/kaggle/p_paris2024/teams.csv';
+copy kaggle_p_paris2024.torch_route from 'sources/kaggle/p_paris2024/torch_route.csv';
+copy kaggle_p_paris2024.venues from 'sources/kaggle/p_paris2024/venues.csv';

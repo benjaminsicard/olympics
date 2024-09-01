@@ -8,7 +8,7 @@ stg_schedules_preliminary_p_paris2024 as (
 
     select * from {{ ref('stg_kaggle_p_paris2024__schedules_preliminary') }}
 
-)
+),
 
 stg_union as (
 
