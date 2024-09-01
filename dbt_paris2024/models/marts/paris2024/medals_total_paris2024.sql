@@ -1,6 +1,6 @@
-with stg_medals_total as (
+with int_medals_total as (
 
-    select * from {{ ref('stg_kaggle_o_paris2024__medals_total') }}
+    select * from {{ ref('int_medals_total') }}
 
 ),
 
@@ -19,7 +19,7 @@ enriched as (
     c.longitude,
     c.flag
 
-    from stg_medals_total m
+    from int_medals_total m
     left join countries c on m.country_code = c.country_code_3
 
 )

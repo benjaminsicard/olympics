@@ -1,18 +1,18 @@
-with stg_athletes as (
+with int_athletes as (
 
-    select * from {{ ref('stg_kaggle_o_paris2024__athletes') }}
-
-),
-
-stg_medals as (
-
-    select * from {{ ref('stg_kaggle_o_paris2024__medals') }}
+    select * from {{ ref('int_athletes') }}
 
 ),
 
-stg_teams as (
+int_medals as (
 
-    select * from {{ ref('stg_kaggle_o_paris2024__teams') }}
+    select * from {{ ref('int_medals') }}
+
+),
+
+int_teams as (
+
+    select * from {{ ref('int_teams') }}
 
 ),
 
@@ -31,11 +31,13 @@ joining as (
        m.event,
        m.event_type,
        m.url_event,
-       m.athlete_or_team_code
+       m.athlete_or_team_code,
+       m.dataset_type,
+       m.dataset_year
 
-    from stg_medals m
-    left join stg_athletes a on m.athlete_or_team_code = a.athlete_code
-    left join stg_teams t on m.athlete_or_team_code = t.team_code
+    from int_medals m
+    left join int_athletes a on m.athlete_or_team_code = a.athlete_code
+    left join int_teams t on m.athlete_or_team_code = t.team_code
 
 )
 

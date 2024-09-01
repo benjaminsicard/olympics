@@ -1,12 +1,12 @@
 with int_athletes as (
 
-    select * from {{ ref('int_athletes_paris_2024_birth_place') }}
+    select * from {{ ref('int_athletes_birth_place') }}
 
 ),
 
-stg_medallists as (
+int_medallists as (
 
-    select * from {{ ref('stg_kaggle_paris2024__medallists') }}
+    select * from {{ ref('int_medallists') }}
 
 ),
 
@@ -45,10 +45,12 @@ joining as (
         m.discipline,
         m.event,
         m.event_type,
-        m.url_event
+        m.url_event,
+        a.dataset_type,
+        a.dataset_year
 
     from int_athletes a 
-    left join stg_medallists m on lower(a.athlete_name) = lower(m.athlete_name)
+    left join int_medallists m on lower(a.athlete_name) = lower(m.athlete_name) and a.dataset_year = m.dataset_year
     left join seed_cities_france city on a.birth_place = city.city_code
     left join seed_cities_france department on a.birth_place = department.department_name
 
@@ -77,7 +79,9 @@ department_cleaned as (
         discipline,
         event,
         event_type,
-        url_event
+        url_event,
+        dataset_type,
+        dataset_year
     
     from joining j
     full join seed_departments_france d on j.department_code = d.department_code -- we want minimum one row per department
@@ -107,6 +111,8 @@ metrics as (
         department_name,
         department_code,
         region_name,
+        dataset_type,
+        dataset_year
         sum(case when medal_code = 1 then 1 else 0 end) as gold_medal_count,
         sum(case when medal_code = 2 then 1 else 0 end) as silver_medal_count,
         sum(case when medal_code = 3 then 1 else 0 end) as bronze_medal_count,
@@ -126,7 +132,9 @@ metrics as (
         athlete_url,
         department_name,
         department_code,
-        region_name
+        region_name,
+        dataset_type,
+        dataset_year
 
 )
 

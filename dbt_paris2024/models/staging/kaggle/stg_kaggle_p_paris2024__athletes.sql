@@ -1,6 +1,6 @@
 with source as (
 
-    select * from {{ source('kaggle_o_paris2024', 'athletes') }}
+    select * from {{ source('kaggle_p_paris2024', 'athletes') }}
 
 ),
 
@@ -61,7 +61,7 @@ selection as (
         events,
         birth_date,
         birth_place,
-        'olympics' as dataset_type,
+        'paralympics' as dataset_type,
         'paris2024' as dataset_year
 
     from renamed
