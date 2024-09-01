@@ -1,6 +1,6 @@
 with stg_medals_total as (
 
-    select * from {{ ref('stg_kaggle_paris2024__medals_total') }}
+    select * from {{ ref('stg_kaggle_o_paris2024__medals_total') }}
 
 ),
 

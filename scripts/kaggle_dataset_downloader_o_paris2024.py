@@ -17,7 +17,7 @@ def download_kaggle_dataset(dataset, download_path):
 
 # Define the dataset and download path
 dataset = 'piterfm/paris-2024-olympic-summer-games'
-download_path = '../sources/kaggle'
+download_path = '../sources/kaggle/o_paris2024'
 
 # Download the dataset
 download_kaggle_dataset(dataset, download_path)

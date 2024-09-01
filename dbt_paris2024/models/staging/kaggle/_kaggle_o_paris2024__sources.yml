@@ -2,10 +2,10 @@ version: 2
 
 sources:
 
-  - name: kaggle_paris2024
+  - name: kaggle_o_paris2024
     description: ""
     database: paris2024
-    schema: kaggle_paris2024
+    schema: kaggle_o_paris2024
     loader: none # informational only (free text)
 
     tables:

@@ -1,18 +1,18 @@
 with stg_athletes as (
 
-    select * from {{ ref('stg_kaggle_paris2024__athletes') }}
+    select * from {{ ref('stg_kaggle_o_paris2024__athletes') }}
 
 ),
 
 stg_medals as (
 
-    select * from {{ ref('stg_kaggle_paris2024__medals') }}
+    select * from {{ ref('stg_kaggle_o_paris2024__medals') }}
 
 ),
 
 stg_teams as (
 
-    select * from {{ ref('stg_kaggle_paris2024__teams') }}
+    select * from {{ ref('stg_kaggle_o_paris2024__teams') }}
 
 ),
 
