@@ -4,6 +4,8 @@ with source as (
 
     where department_code is not null
     and department_code = cast(${inputs.french_departments_area_map.department_code} as varchar)
+    and dataset_type = 'olympics' 
+    and dataset_year = 'paris2024'
 
     order by gold_medal_count desc, silver_medal_count desc, bronze_medal_count desc
 

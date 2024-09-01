@@ -1,20 +1,11 @@
 ---
-title: Paris 2024 Paralympics - Medal table
+title: Medals table
+sidebar_position: 1
+queries:
+  - medals_total_paris2024: o_paris2024_medals_total_paris2024.sql
 ---
 
 # Medal table
-
-```sql medals_total_paris2024
-with source as (
-
-    select * from duckdb_paris2024.medals_total_paris2024 
-    where country is not null
-    and dataset_type = 'paralympics' and dataset_year = 'paris2024'
-
-)
-
-from source order by ${inputs.medals_order_by.value} desc, gold_medal_count desc, silver_medal_count desc, bronze_medal_count desc
-```
 
 <Dropdown name=medals_order_by>
     <DropdownOption valueLabel="Order by Gold medals" value="gold_medal_count" />

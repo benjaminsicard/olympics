@@ -1,8 +1,9 @@
 ---
 title: French athletes map
+sidebar_position: 2
 queries:
-  - french_departments_paris2024_not_null: french_departments_paris2024_not_null.sql
-  - athletes_paris2024_filtered_by_french_departments_area_map: athletes_paris2024_filtered_by_french_departments_area_map.sql
+  - french_departments_paris2024_not_null: o_paris2024_french_departments_paris2024_not_null.sql
+  - athletes_paris2024_filtered_by_french_departments_area_map: o_paris2024_athletes_paris2024_filtered_by_french_departments_area_map.sql
 ---
 
 # Birth department of Paris 2024 French athletes

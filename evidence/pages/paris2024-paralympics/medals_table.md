@@ -1,5 +1,6 @@
 ---
-title: Paris 2024 Paralympics - Medal table
+title: Medals table
+sidebar_position: 1
 ---
 
 # Medal table

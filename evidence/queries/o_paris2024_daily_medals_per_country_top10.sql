@@ -2,6 +2,8 @@ with source as (
 
     select * from ${medals_paris2024}
 
+    where dataset_type = 'olympics' and dataset_year = 'paris2024'
+
 ),
 
 date_range AS (

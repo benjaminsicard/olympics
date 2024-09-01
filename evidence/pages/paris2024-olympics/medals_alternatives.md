@@ -1,12 +1,13 @@
 ---
 title: Medals alternatives viz
+sidebar_position: 3
 queries:
-  - athletes_paris2024: athletes_paris2024.sql
-  - medals_paris2024: medals_paris2024.sql
-  - medals_per_country_top10: medals_per_country_top10.sql
-  - daily_medals_per_country_top10: daily_medals_per_country_top10.sql
-  - medals_per_country_top10_pivoted_order_by_gold: medals_per_country_top10_pivoted_order_by_gold.sql
-  - medals_per_country_top10_pivoted_order_by_total: medals_per_country_top10_pivoted_order_by_total.sql
+  - athletes_paris2024: o_paris2024_athletes_paris2024.sql
+  - medals_paris2024: o_paris2024_medals_paris2024.sql
+  - medals_per_country_top10: o_paris2024_medals_per_country_top10.sql
+  - daily_medals_per_country_top10: o_paris2024_daily_medals_per_country_top10.sql
+  - medals_per_country_top10_pivoted_order_by_gold: o_paris2024_medals_per_country_top10_pivoted_order_by_gold.sql
+  - medals_per_country_top10_pivoted_order_by_total: o_paris2024_medals_per_country_top10_pivoted_order_by_total.sql
 ---
 
 # Daily cumulative medals count - top 10 countries

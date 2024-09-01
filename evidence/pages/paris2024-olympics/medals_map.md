@@ -1,7 +1,8 @@
 ---
 title: Medals map
+sidebar_position: 4
 queries:
-  - medals_total_paris2024: medals_total_paris2024.sql
+  - medals_total_paris2024: o_paris2024_medals_total_paris2024.sql
 ---
 
 <Dropdown name=medals_order_by>
