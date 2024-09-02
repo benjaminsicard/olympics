@@ -37,6 +37,5 @@ queries:
         ]
     }
 >
-<ReferenceArea xMin='2024-08-30' xMax='2024-08-31' label="Athletics start" color=yellow/>
 </LineChart>
 
