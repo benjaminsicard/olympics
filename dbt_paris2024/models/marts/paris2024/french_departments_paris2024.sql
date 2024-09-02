@@ -15,7 +15,7 @@ aggr as (
     
     from french_athletes
 
-    group by department_code, department_name,dataset_type, dataset_year
+    group by department_code, department_name, dataset_type, dataset_year
 
 )
 

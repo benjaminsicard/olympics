@@ -74,9 +74,9 @@ exclude_france_selection as (
         disciplines,
         events,
         birth_date,
-        birth_place,
         dataset_type,
-        dataset_year
+        dataset_year,
+        birth_place
     
     from exclude_france
 
