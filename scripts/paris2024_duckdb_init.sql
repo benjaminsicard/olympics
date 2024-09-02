@@ -185,6 +185,14 @@ CREATE TABLE kaggle_o_paris2024.venues (
     url TEXT
 );
 
+CREATE TABLE kaggle_o_paris2024.nocs (
+    code TEXT,
+    country TEXT,
+    country_long TEXT,
+    tag TEXT,
+    note TEXT
+);
+
 -- executed from evidence/sources/duckdb
 -- copy csv file into table
 copy kaggle_o_paris2024.athletes from 'sources/kaggle/o_paris2024/athletes.csv';
@@ -197,6 +205,7 @@ copy kaggle_o_paris2024.schedules from 'sources/kaggle/o_paris2024/schedules.csv
 copy kaggle_o_paris2024.teams from 'sources/kaggle/o_paris2024/teams.csv';
 copy kaggle_o_paris2024.torch_route from 'sources/kaggle/o_paris2024/torch_route.csv';
 copy kaggle_o_paris2024.venues from 'sources/kaggle/o_paris2024/venues.csv';
+copy kaggle_o_paris2024.nocs from 'sources/kaggle/o_paris2024/nocs.csv';
 
 -- PARALYMPICS DATASET
 

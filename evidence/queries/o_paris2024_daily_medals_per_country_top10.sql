@@ -2,8 +2,6 @@ with source as (
 
     select * from ${medals_paris2024}
 
-    where dataset_type = 'olympics' and dataset_year = 'paris2024'
-
 ),
 
 date_range AS (
@@ -28,6 +26,7 @@ top_selection as (
         total_medal_count
     
     from duckdb_paris2024.medals_total_paris2024
+    where dataset_type = 'olympics' and dataset_year = 'paris2024'
     order by gold_medal_count desc, silver_medal_count desc, bronze_medal_count desc
     limit 10
 
